@@ -10,7 +10,8 @@ public class VenlySDK_UE_Beamable : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+        PublicDependencyModuleNames.AddRange(new string[] { "Venly", "VenlyBeamable" });
+        PublicDependencyModuleNames.AddRange(new string[] { "BeamableCore", "BeamableCoreRuntime", "Json", "JsonUtilities" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Beamable.Server;
+using Venly;
 using Venly.Companion;
 
 namespace Beamable.VenlyProviderService
@@ -10,7 +11,14 @@ namespace Beamable.VenlyProviderService
 		[ClientCallable]
 		public async Task<string> Execute(string request)
 		{
-			return await HandleRequest(request);
+            //(optional) Here you can also configure the Endpoint Guard
+            //Changing the default behavior of what endpoints are allowed/denied
+            //VenlyAPI.Backend.AllowEndpoint(VenlyAPI.Wallet.IDs.ExecuteCryptoTokenTransfer);
+            //VenlyAPI.Backend.AllowEndpoint(VenlyAPI.Wallet.IDs.ExecuteMultiTokenTransfer);
+            //VenlyAPI.Backend.AllowEndpoint(VenlyAPI.Wallet.IDs.ExecuteNativeTokenTransfer);
+            //...
+
+            return await HandleRequest(request);
 		}
 	}
 }

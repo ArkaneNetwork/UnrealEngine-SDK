@@ -86,8 +86,10 @@ void UVyBeamableProxy::SignalRequestComplete(int64 RequestId, const FVyBeamableM
 
 		if (VyJsonUtils::JsonObjectStringToUStruct(DecodedResult, &ServerResponse))
 		{
-			if(ServerResponse.IsDataEncoded)
-				FBase64::Decode(ServerResponse.Data, ServerResponse.Data); //Decode data-level
+			//if (ServerResponse.IsDataEncoded) {
+			//	FBase64::Decode(ServerResponse.Data, ServerResponse.Data); //Decode data-level
+			//	ServerResponse.IsDataEncoded = false;
+			//}
 
 			auto response = VyResponseUtils::CreateResponseContext_ServerResponse(ServerResponse, TEXT("BEAMABLE_PROVIDER::MICROSERVICE"));
 			auto _ = OnComplete.ExecuteIfBound(response);

@@ -10,7 +10,8 @@ namespace Beamable.VenlyProviderService
 		[ClientCallable]
 		public async Task<string> Execute(string request)
 		{
-			return await HandleRequest(request);
+			var response =  await HandleRequest(request);
+			return response;
 		}
 	}
 }
